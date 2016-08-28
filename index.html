@@ -1,24 +1,26 @@
 <html>
-  <head>
+<head>
     <title>Angular 2 QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
-
     <!-- Polyfill(s) for older browsers -->
+    <!--首先引入 es6-shim ，它会给全局对象 window 打上补丁，使其支持 ES2015(ES6) 的必备特性。-->
     <script src="node_modules/core-js/client/shim.min.js"></script>
-
+    <!--然后是 Angular 2 的 polyfills ，以及 zone.js 和 reflect-metadata-->
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-
+    <!--然后是用于模块加载的 SystemJS 库-->
     <script src="systemjs.config.js"></script>
     <script>
-      System.import('app').catch(function(err){ console.error(err); });
+        //配置SystemJS ，以便引入和运行刚才写的 main 文件。
+        //System是一款强悍的支持AMD,CommonJS和ES6的模块加载器
+        System.import('app').catch(function (err) { console.error(err); });
     </script>
-  </head>
-
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+</head>
+    <!--<body> 中的 <my-app> 标签是 供应用程序“生活”的地方。-->
+<body>
+    <my-app class="">Loading...</my-app>
+</body>
 </html>
