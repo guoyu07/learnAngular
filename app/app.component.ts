@@ -3,10 +3,7 @@
  *
  */
 import { Component } from '@angular/core';
-export class Hero {
-    id:number;
-    name:string;
-}
+import {Hero} from './hero';
 //Component 是一个 装饰器函数 ，它接受一个 元数据对象 作为参数。
 //通过给这个函数加上 @ 前缀，并使用 metadata 对象调用它，可以把这个“函数调用”加到组件类的紧上方。
 //@Component用于告诉Angular,它对应的选择器以及这个选择器要呈现的内容
@@ -31,16 +28,7 @@ const HEROES:Hero[] = [
                  <span class="badge">{{hero.id}}</span> {{hero.name}}
               </li>
             </ul>
-            <div *ngIf="selectedHero">
-                <h2>{{selectedHero.name}} details!</h2>
-                <div>
-                    <label>id: </label>{{selectedHero.id}}
-                </div>
-                <div>
-                    <label>name: </label>{{selectedHero.name}}
-                    <input [(ngModel)]="selectedHero.name" placeholder="name">
-                </div>
-            </div>`,
+            <my-hero-detail [hero]="selectedHero"></my-hero-detail>`,
     styles: [`
             .selected {
             background-color: #CFD8DC !important;
@@ -98,7 +86,7 @@ export class AppComponent {
     title = '英雄指南';
     heroes = HEROES;
     selectedHero:Hero;
-    onSelect(hero:Hero):void{
-        this.selectedHero=hero;
+    onSelect(hero:Hero):void {
+        this.selectedHero = hero;
     }
 }
