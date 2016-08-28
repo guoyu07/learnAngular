@@ -93,7 +93,19 @@ export class AppComponent implements OnInit {
     getHeroes():void {
         //在回调中，我们把由服务返回的英雄数组赋值给组件的 heroes 属性。是的，这就搞定了。
         //我们的程序仍在运行，仍在显示英雄列表，在选择英雄时，仍然会把他 / 她显示在详情页面中。
+        //异步请求
         this.heroService.getHeroes().then(heroes=>this.heroes = heroes);
+        //延时的异步请求
+        //this.heroService.getHeroesSlowly().then(heroes=>this.heroes = heroes);
+        //同步请求
+        //this.heroes = this.heroService.getHeroesSync();
+        /**
+         * 注意:
+         * 如果是浏览器热加载,在切换上述不同的请求方式的时候,记得要重启服务器
+         * 例如从同步请求切换到延时的异步请求的时候,如果不重启服务器,就会报以下错误:
+         * Error: Error: Can't resolve all parameters for AppComponent:
+         *
+         */
     }
 
     ngOnInit():void {
